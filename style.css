@@ -1,0 +1,100 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  min-width: 100vw;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100');
+  background-position: center;
+  background-size: cover;
+}
+#canvas{
+  width: 400px;
+  height: 20px;
+  background-color: aliceblue;
+}
+.wrapper {
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(6px) saturate(180%);
+  border-radius: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 1.5%;
+  box-shadow: rgba(255, 255, 255, 0.5) -20px -20px 45px inset, rgba(0, 0, 0, 0.1) 10px 10px 20px, rgba(0, 0, 0, 0.06) 5px 5px 10px;
+  width: 30vw;
+  height: 70vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.mus-info {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 1px solid #fff;
+  height: 60%;
+}
+.image {
+  margin: 25px;
+  height: 250px;
+  width: 250px;
+  background-image: url('./img/FourTet.jpg');
+  background-size: cover;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+.buttons {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #fff;
+}
+.buttons > i {
+  width: 25px;
+  cursor: pointer;
+}
+.slider {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  border: 1px solid #fff;
+  width: 100%;
+  height: 15%;
+  padding: 0 5px;
+}
+.progress {
+  background: #fff;
+  border-radius: 3px;
+  cursor: ew-resize;
+  display: flex;
+  flex: 10;
+  /*     flex-basis: 100%; */
+  max-height: 5px;
+  /*    width: 80%; */
+  margin: 0 20px;
+}
+.progressLine {
+  background: #fc8da8;
+  flex: 0;
+  flex-basis: 0%;
+  width: 50%;
+  height: 5px;
+}
