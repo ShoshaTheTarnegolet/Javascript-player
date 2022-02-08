@@ -1,7 +1,7 @@
 /* buttons */
 const play = document.getElementById('play');
-const back = document.querySelector('.fa-step-backward');
-const next = document.querySelector('.fa-step-forward');
+const back = document.querySelector('.backward');
+const next = document.querySelector('.forward');
 
 /* divs */
 const img = document.querySelector('.image');
@@ -55,21 +55,18 @@ function load(i) {
 }
 
 let isPlaying = false;
-/* play */
 const playSong = () => {
-  song.play();
-  play.classList.remove('fa-play');
-  play.classList.add('fa-pause');
-  isPlaying = true;
-};
-/* pause */
-const pauseSong = () => {
-  song.pause();
-  play.classList.remove('fa-pause');
-  play.classList.add('fa-play');
-  isPlaying = false;
-};
+  if (!isPlaying) {
+    song.play();
+    play.src = 'https://img.icons8.com/ios-filled/60/000000/circled-pause.png';
+    isPlaying = true;
+  } else {
+    song.pause();
+    play.src = 'https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-play-button-arrow-flatart-icons-solid-flatarticons-1.png';
+    isPlaying = false;
+  }
 
+}
 /* next song */
 const nextSong = () => {
   // if it's a last song
@@ -79,7 +76,7 @@ const nextSong = () => {
     i = 0;
   }
   load(i);
-  playSong();
+  progressBar.style.flexBasis = 0;
 };
 
 /* previous song */
@@ -90,7 +87,7 @@ const prevSong = () => {
     i = trackList.length - 1;
   }
   load(i);
-  playSong();
+  progressBar.style.flexBasis = 0;
 };
 
 /* progress and time*/
@@ -128,29 +125,26 @@ const timeUpdate = () => {
     currentT.innerHTML = `${currentM}:${currentS}`;
   }
 };
-/* refresh
-function refresh() {
-    totalT.innerHTML = `00:00`;
-    currentT.innerHTML = `00:00`;
-}
-*/
+
 /* play button event */
 play.addEventListener('click', () => {
-  if (!isPlaying) {
-    playSong();
-  } else {
-    pauseSong();
-  }
+  playSong();
+
 });
 
 /* backward button event */
 back.addEventListener('click', () => {
   prevSong();
+  isPlaying = false;
+  play.src = 'https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-play-button-arrow-flatart-icons-solid-flatarticons-1.png';
 });
 
 /* forward button event */
 next.addEventListener('click', () => {
+  isPlaying = false;
   nextSong();
+  play.src = 'https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-play-button-arrow-flatart-icons-solid-flatarticons-1.png';
+
 });
 
 /* slider event */
@@ -159,48 +153,5 @@ progress.addEventListener('click', progressMove);
 progress.addEventListener('mousemove', (e) => mousedown && progressMove(e));
 progress.addEventListener('mousedown', () => (mousedown = true));
 progress.addEventListener('mouseup', () => (mousedown = false));
-
-
-
-/* var audio = new Audio();
-audio.crossOrigin = "anonymous";
-audio.src = "./songs/Louis Armstrong, Ella Fitzgerald- Let's Call the Whole Thing Off.mp3";
-audio.controls = true;
-audio.loop = false;
-audio.autoplay = false;
-audio.addEventListener("playing", start);
-let canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
-window.addEventListener("load", load(i), false);
-
-
-function frameLooper() {
-  window.requestAnimationFrame(frameLooper);
-  fbc_array = new Uint8Array(analyser.frequencyBinCount);
-  analyser.getByteFrequencyData(fbc_array);
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
-  ctx.fillStyle = '#006600'; // Color of the bars
-  bars = 100;
-  for (var i = 0; i < bars; i++) {
-    bar_x = i * 3;
-    bar_width = 2;
-    bar_height = -(fbc_array[i] / 2);
-    //  fillRect( x, y, width, height ) // Explanation of the parameters below
-    ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
-  }
-}
-
-function start() {
-  context = new AudioContext(); // AudioContext object instance
-  analyser = context.createAnalyser(); // AnalyserNode method
-  canvas = document.getElementById('canvas');
-  ctx = canvas.getContext('2d');
-  // Re-route audio playback into the processing graph of the AudioContext
-  source = context.createMediaElementSource(audio);
-  source.connect(analyser);
-  analyser.connect(context.destination);
-  frameLooper();
-  audio.removeEventListener("playing", start);
-}
- */
 
 load(i);

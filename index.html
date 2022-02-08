@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./style.css" />
-    <title>Document</title>
+    <title>Music Player</title>
   </head>
   <body>
-    <div class="canvas">
-      <canvas id="canvas"></canvas>
-    </div>
+
     <div class="wrapper">
+
       <!-- mus info  -->
       <div class="mus-info">
         <div class="image"></div>
@@ -22,9 +23,9 @@
       </div>
       <!-- buttons -->
       <div class="buttons">
-        <i class="fas fa-step-backward fa-2x"></i>
-        <i class="fas fa-play fa-2x" id="play"></i>
-        <i class="fas fa-step-forward fa-2x"></i>
+      <img class="backward" src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-rewind-arrow-flatart-icons-solid-flatarticons.png"/>
+  <img src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-play-button-arrow-flatart-icons-solid-flatarticons-1.png" id="play"/>
+        <img src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/80/000000/external-forward-arrow-flatart-icons-solid-flatarticons.png" class="forward"/>
       </div>
       <!-- slider -->
       <div class="slider">
