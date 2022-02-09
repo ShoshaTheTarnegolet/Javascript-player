@@ -28,7 +28,7 @@ body {
   box-shadow: rgba(255, 255, 255, 0.5) -20px -20px 45px inset, rgba(0, 0, 0, 0.1) 10px 10px 20px, rgba(0, 0, 0, 0.06) 5px 5px 10px;
 /*   width: 30vw;
   height: 70vh; */
-  height: 70vh;
+
   margin: 0 5%;
   flex-flow: column nowrap;
   align-items: center;
@@ -48,8 +48,9 @@ body {
   margin: 25px;
   height: 250px;
   width: 250px;
-  background-image: url('./img/FourTet.jpg');
-  background-size: cover;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
   border-radius: 10%;
   -webkit-border-radius: 10%;
   -moz-border-radius: 10%;
